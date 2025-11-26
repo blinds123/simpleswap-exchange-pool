@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: simpleswap-automation-1
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node pool-server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PRICE_POINTS
+        value: "19,29,59"
+      - key: POOL_SIZE_PER_PRICE
+        value: "5"
+      - key: MIN_POOL_SIZE
+        value: "3"
+      - key: MERCHANT_WALLET
+        sync: false
+      - key: BRIGHTDATA_CUSTOMER_ID
+        sync: false
+      - key: BRIGHTDATA_ZONE
+        sync: false
+      - key: BRIGHTDATA_PASSWORD
+        sync: false
+      - key: ALLOWED_ORIGINS
+        value: "https://shepants.netlify.app,https://beigesneaker.netlify.app,http://localhost:3000"
